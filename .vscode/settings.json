@@ -1,0 +1,12 @@
+{
+    "python.analysis.typeCheckingMode": "basic",
+    "cSpell.words": [
+        "matplotlib",
+        "northwind",
+        "postgre",
+        "psql",
+        "psycopg",
+        "pyplot",
+        "sqlalchemy"
+    ]
+}
