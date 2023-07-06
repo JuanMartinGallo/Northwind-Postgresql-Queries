@@ -56,7 +56,24 @@ class Orders(Base):
 
 ############################### Functions ###############################
 # Function in charge of creating graphics and visualizations
-def generate_graphs(x, y, title, xlabel, ylabel, query, xTicks):
+def generate_graphs(x, y, title, xlabel, ylabel, query, x_ticks):
+    """
+    Generates and displays a graph based on user input.
+
+    Args:
+        x (str): The name of the column to be plotted on the x-axis.
+        y (str): The name of the column to be plotted on the y-axis.
+        title (str): The title of the graph.
+        xlabel (str): The label for the x-axis.
+        ylabel (str): The label for the y-axis.
+        query (List[Tuple]): The data used to create the graph.
+        x_ticks (int): The rotation angle of x-axis tick labels.
+
+    Note:
+        The 'query' parameter should contain data in the form of a list of tuples, 
+        where each tuple represents a row
+        with values for columns x and y.
+    """
     allowed_types = [
         "line",
         "bar",
@@ -97,7 +114,7 @@ def generate_graphs(x, y, title, xlabel, ylabel, query, xTicks):
     plt.title(title)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
-    plt.xticks(rotation=xTicks)
+    plt.xticks(rotation=x_ticks)
     plt.show()
 
     os.system("cls" if os.name == "nt" else "clear")
@@ -202,7 +219,8 @@ def query3():
         session.close()
         engine.dispose()
 
-#getting the employee that made the most money
+
+# getting the employee that made the most money
 def query4():
     try:
         fth_query = (
@@ -217,8 +235,8 @@ def query4():
             .order_by(desc("Best Sale"))
             .limit(1)
             .all()
-        )          
-        
+        )
+
         generate_graphs(
             "Employee",
             "Best Sale",
@@ -228,7 +246,7 @@ def query4():
             fth_query,
             0,
         )
-    
+
     except Exception as e:
         print(f"An error occurred while executing the query: {str(e)}")
     finally:

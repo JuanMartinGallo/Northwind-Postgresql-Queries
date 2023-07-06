@@ -1,8 +1,13 @@
 import os
 from UDF import query1, query2, query3, query4
 
-
 def menu():
+    """Displays a menu with query options and executes the selected query.
+
+    The function presents a menu of query options and prompts the user to select
+    a query. Depending on the user's choice, the corresponding query function
+    is called to perform the query.
+    """
     query_options = [
         "10 most profitable products",
         "10 most effective employees",
@@ -35,8 +40,9 @@ def menu():
 
 
 def main():
+    # Entry point of the program
     menu()
 
-
+# Check if the module is being run as a standalone program
 if __name__ == "__main__":
     main()
